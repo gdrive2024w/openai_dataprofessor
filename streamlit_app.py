@@ -1,6 +1,6 @@
 # Code refactored from https://docs.streamlit.io/knowledge-base/tutorials/build-conversational-apps
 
-# import openai
+import openai
 from openai import AsyncOpenAI
 import streamlit as st
 
