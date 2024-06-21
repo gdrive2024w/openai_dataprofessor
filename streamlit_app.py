@@ -31,7 +31,7 @@ if prompt := st.chat_input("What is up?"):
         #message_placeholder = st.empty()
         full_response = ""
         client = AsyncOpenAI()
-        completion = await client.chat.completions.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": "Hello world"}])
+        completion = client.chat.completions.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": "Hello world"}])
         # for response in openai.ChatCompletion.create(
         #    model="gpt-3.5-turbo",
         #    messages=[{"role": m["role"], "content": m["content"]}
