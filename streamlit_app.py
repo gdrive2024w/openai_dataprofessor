@@ -1,6 +1,7 @@
 # Code refactored from https://docs.streamlit.io/knowledge-base/tutorials/build-conversational-apps
 
-import openai
+# import openai
+from openai import AsyncOpenAI
 import streamlit as st
 
 with st.sidebar:
@@ -29,7 +30,9 @@ if prompt := st.chat_input("What is up?"):
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         full_response = ""
-        for response in openai.ChatCompletion.create(
+        client = AsyncOpenAI()
+        # for response in openai.ChatCompletion.create(
+        for response in client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[{"role": m["role"], "content": m["content"]}
                       for m in st.session_state.messages], stream=True):
